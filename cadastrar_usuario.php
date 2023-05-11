@@ -40,7 +40,7 @@ $senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
 $sql = "INSERT INTO usuarios (nome, email, senha) VALUES ('$nome', '$email', '$senhaCriptografada')";
 
 if ($conn->query($sql) === TRUE) {
-  header('Location: inicial.html');
+  header('Location: login.php');
   exit();
 } else {
   $_SESSION['erro_cadastro'] = 'Erro ao cadastrar usuário: ' . $conn->error;
