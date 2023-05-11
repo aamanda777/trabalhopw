@@ -71,13 +71,13 @@
     <form action="formulario_upload.php" method="POST" enctype="multipart/form-data">
       <div class="mb-4">
         <label for="arquivo" class="block text-gray-700 font-bold mb-2">Selecione o arquivo:</label>
-        <input type="file" name="arquivo" required class="border border-gray-300 py-2 px-4 w-full mb-4">
+        <input type="file" name="arquivo" required class="border border-gray-300 py-2 px-4 w-full mb-4 focus:outline-none focus:ring-2 focus:ring-pink-500">
 
         <label for="titulo" class="block text-gray-700 font-bold mb-2">Título:</label>
-        <input type="text" name="titulo" required class="border border-gray-300 py-2 px-4 w-full mb-4">
+        <input type="text" name="titulo" required class="border border-gray-300 py-2 px-4 w-full mb-4 focus:outline-none focus:ring-2 focus:ring-pink-500">
 
         <label for="descricao" class="block text-gray-700 font-bold mb-2">Descrição:</label>
-        <textarea name="descricao" required class="border border-gray-300 py-2 px-4 w-full mb-4"></textarea>
+        <textarea name="descricao" required class="border border-gray-300 py-2 px-4 w-full mb-4 focus:outline-none focus:ring-2 focus:ring-pink-500"></textarea>
 
         <input type="submit" value="Enviar"
           class="mt-4 bg-pink-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-pink-600 w-full mb-4">

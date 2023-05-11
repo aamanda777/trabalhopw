@@ -75,17 +75,17 @@
     <form action="busca_documentos.php" method="POST" class="mt-8">
       <div class="mb-4">
         <label for="nome" class="text-lg font-semibold">Nome:</label>
-        <input type="text" name="nome" id="nome" class="border border-gray-300 py-2 px-4 rounded-md">
+        <input type="text" name="nome" id="nome" class="border border-gray-300 py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 ">
       </div>
 
       <div class="mb-4">
         <label for="data_upload" class="text-lg font-semibold">Data de Upload:</label>
-        <input type="date" name="data_upload" id="data_upload" class="border border-gray-300 py-2 px-4 rounded-md">
+        <input type="date" name="data_upload" id="data_upload" class="border border-gray-300 py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500">
       </div>
 
       <div class="mb-4">
-        <label for="proprietario" class="text-lg font-semibold">Proprietário:</label>
-        <select name="proprietario" id="proprietario" class="border border-gray-300 py-2 px-4 rounded-md">
+        <label for="proprietario" class="text-lg font-semibold ">Proprietário:</label>
+        <select name="proprietario" id="proprietario" class="border border-gray-300 py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500">
           <option value="">Todos</option>
           <?php
           $sql = "SELECT id, nome FROM usuarios";
