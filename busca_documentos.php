@@ -19,29 +19,26 @@
     <?php
     session_start();
 
-    // Verificar se o usuário está logado
     if (!isset($_SESSION['usuario_logado'])) {
       $_SESSION['mensagem'] = 'Você precisa estar logado para acessar esta página.';
       header('Location: login.php');
       exit;
-    }
+    } 
+    // verifica se o usuario ta logado
 
-    // Conectar ao banco de dados
-    $conn = new mysqli('localhost', 'root', '', 'trabalho');
-
-    // Verificar se houve erros na conexão
+    $conn = new mysqli('localhost', 'root', '', 'trabalho'); 
     if ($conn->connect_error) {
       die('Erro na conexão com o banco de dados: ' . $conn->connect_error);
-    }
+    } 
+    // conexao
 
-    // Verificar se o formulário foi enviado
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-      // Receber os critérios de busca
+      // recebe os critérios de busca
       $nome = $_POST['nome'];
       $dataUpload = $_POST['data_upload'];
       $proprietario = $_POST['proprietario'];
 
-      // Construir a consulta SQL baseada nos critérios de busca
+      // consulta SQL baseada nos critérios de busca
       $sql = "SELECT * FROM documentos WHERE 1=1";
 
       if (!empty($nome)) {
@@ -56,10 +53,10 @@
         $sql .= " AND id_usuario = $proprietario";
       }
 
-      // Executar a consulta SQL
+      // executa a consulta SQL
       $result = $conn->query($sql);
 
-      // Verificar se há documentos encontrados
+      // verifica se algum documento foi encontrado
       if ($result->num_rows > 0) {
         echo '<h2 class="text-2xl font-bold mt-4">Documentos Encontrados:</h2>';
 
