@@ -66,7 +66,6 @@
         while ($row = $result->fetch_assoc()) {
           echo '<p class="mt-2"><span class="font-semibold">Título:</span> ' . $row['titulo'] . '</p>';
           echo '<p><span class="font-semibold">Descrição:</span> ' . $row['descricao'] . '</p>';
-          echo '<p><span class="font-semibold">Proprietário:</span> ' . $row['id_usuario'] . '</p>';
           echo '<p class="mt-2"><a href="download.php?id=' . $row['id'] . '" class="text-blue-500 font-semibold hover:underline">Baixar</a></p>';
           echo '<hr class="my-4">';
         }
