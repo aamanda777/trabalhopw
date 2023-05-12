@@ -8,43 +8,41 @@ if (!isset($_SESSION['usuario_logado'])) {
     exit;
 }
 
-// verifica se o ID do documento foi enviado
-if (isset($_POST['documento_id'])) {
+// verifica se o formulário de exclusão foi enviado
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['documento_id'])) {
     $documentoId = $_POST['documento_id'];
 
-    // conecta o banco de dados
+    // conecta ao banco de dados
     $conn = new mysqli('localhost', 'root', '', 'trabalho');
     if ($conn->connect_error) {
         die('Erro na conexão com o banco de dados: ' . $conn->connect_error);
     }
 
-    // verifica se o documento pertence ao usuário
-    $idUsuario = $_SESSION['id_usuario'];
-    $sql = "SELECT id FROM documentos WHERE id = ? AND id_usuario = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ii", $documentoId, $idUsuario);
-    $stmt->execute();
-    $resultado = $stmt->get_result();
+    // exclui os registros da tabela 'permissoes' associados ao documento
+    $sqlPermissoes = "DELETE FROM permissoes WHERE id_documento = ?";
+    $stmtPermissoes = $conn->prepare($sqlPermissoes);
+    $stmtPermissoes->bind_param("i", $documentoId);
+    $stmtPermissoes->execute();
+    $stmtPermissoes->close();
 
-    if ($resultado->num_rows > 0) {
-        // o documento pertence ao usuário, pode ser excluído
-        $sql = "DELETE FROM documentos WHERE id = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("i", $documentoId);
-        $stmt->execute();
-
-        if ($stmt->affected_rows > 0) {
-            $_SESSION['mensagem'] = 'Documento excluído com sucesso.';
-        } else {
-            $_SESSION['mensagem'] = 'Ocorreu um erro ao excluir o documento.';
-        }
+    // exclui o documento do banco de dados
+    $sqlDocumento = "DELETE FROM documentos WHERE id = ?";
+    $stmtDocumento = $conn->prepare($sqlDocumento);
+    $stmtDocumento->bind_param("i", $documentoId);
+    if ($stmtDocumento->execute()) {
+        $_SESSION['mensagem'] = 'Documento excluído com sucesso.';
     } else {
-        $_SESSION['mensagem'] = 'O documento não foi encontrado ou você não tem permissão para excluí-lo.';
+        $_SESSION['mensagem'] = 'Ocorreu um erro ao excluir o documento.';
     }
 
+    $stmtDocumento->close();
     $conn->close();
-}
 
-header('Location: documentos_compartilhados.php');
-exit;
+    header('Location: documentos_compartilhados.php');
+    exit;
+} else {
+    // se não houver documento_id no POST, redireciona de volta para a página de documentos compartilhados
+    header('Location: documentos_compartilhados.php');
+    exit;
+}
 ?>

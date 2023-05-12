@@ -1,81 +1,92 @@
 <?php
 session_start();
 
-// verifica se o usuário está logado, leva até a página de login se não estiver
+// verifica se o usuário está logado
 if (!isset($_SESSION['usuario_logado'])) {
+    $_SESSION['mensagem'] = 'Você precisa estar logado para acessar esta página.';
     header('Location: login.php');
     exit;
 }
 
-// Verifica se o formulário de exclusão foi enviado
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['excluir_documento'])) {
-    $idDocumento = $_POST['excluir_documento'];
-    
-    // Aqui você pode adicionar o código para excluir o documento do banco de dados
-    // ...
-    // ...
-
-    // Exemplo de mensagem de sucesso
-    $mensagem = "Documento excluído com sucesso.";
-}
-
-// Conecta ao banco de dados
+// conecta ao banco de dados
 $conn = new mysqli('localhost', 'root', '', 'trabalho');
 if ($conn->connect_error) {
     die('Erro na conexão com o banco de dados: ' . $conn->connect_error);
 }
 
-// Obtém o ID do usuário logado
+// obtém o ID do usuário logado
 $idUsuario = $_SESSION['id_usuario'];
 
-// Consulta os documentos do usuário
+// consulta os documentos do usuário
 $sql = "SELECT id, titulo, descricao, data_upload FROM documentos WHERE id_usuario = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $idUsuario);
 $stmt->execute();
 $resultado = $stmt->get_result();
 
-// Verifica se há documentos cadastrados
+// verifica se existem documentos
 if ($resultado->num_rows > 0) {
-    $documentos = $resultado->fetch_all(MYSQLI_ASSOC);
-} else {
-    $documentos = [];
-}
-?>
+    ?>
 
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meus Documentos</title>
-    <link href="https://unpkg.com/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="bg-pink-100">
-    <div class="container mx-auto px-4 py-10">
-        <h1 class="text-3xl font-bold mb-4 text-center text-pink-500">Meus Documentos</h1>
-        <?php if (!empty($mensagem)) : ?>
-            <p class="text-green-500 mb-4"><?php echo $mensagem; ?></p>
-        <?php endif; ?>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <?php foreach ($documentos as $documento) : ?>
-                <div class="bg-white rounded-lg shadow-lg p-4">
-                    <h2 class="text-lg font-bold text-pink-500 mb-2"><?php echo $documento['titulo']; ?></h2>
-                    <p class="text-gray-600 mb-2"><?php echo $documento['descricao']; ?></p>
-                    <p class="text-gray-600 mb-2">Data de Upload: <?php echo $documento['data_upload']; ?></p>
-                    <div class="flex justify-between">
-                        <a href="download_documento.php?id=<?php echo $documento['id']; ?>"
-                            class="bg-pink-500 hover:bg-pink-600 focus:bg-pink-600 transition-colors duration-300 ease-in-out py-2 px-4 rounded-lg block text-center text-white font-semibold">Baixar</a>
-                        <form action="excluir_documento.php" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir este documento?');">
-                            <input type="hidden" name="excluir_documento" value="<?php echo $documento['id']; ?>">
-                            <button type="submit" class="bg-red-500 hover:bg-red-600 focus:bg-red-600 transition-colors duration-300 ease-in-out py-2 px-4 rounded-lg block text-center text-white font-semibold">Excluir</button>
-                        </form>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-        </div>
+    <!DOCTYPE html>
+    <html lang="pt-br">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Meus Livros</title>
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    </head>
+    <style>
+        body {
+            background-color: #EBF5FF;
+        }
+    </style>
+    <div class="container mx-auto py-8">
+        <h1 class="text-4xl font-bold mb-9 text-center text-pink-500 uppercase">Meus Livros</h1>
+
+        <?php while ($row = $resultado->fetch_assoc()) {
+            $documentoId = $row['id'];
+            $titulo = $row['titulo'];
+            $descricao = $row['descricao'];
+            $dataUpload = $row['data_upload'];
+            ?>
+
+            <div class="bg-gray-50 rounded-lg shadow-md p-4 mb-4">
+                <h3 class="text-2xl text-purple-600 mb-2 uppercase">
+                    <?php echo $titulo; ?>
+                </h3>
+                <p class="text-gray-700 mb-2">
+                    <?php echo $descricao; ?>
+                </p>
+                <p class="text-gray-500">Data de Upload:
+                    <?php echo $dataUpload; ?>
+                </p>
+                <a href="download.php?id=<?php echo $documentoId; ?>"
+                    class="inline-block bg-green-300 hover:bg-green-400 focus:bg-green-600 transition-colors duration-300 ease-in-out text-white font-semibold px-5 py-2 rounded-lg mr-2 mt-3">Baixar</a>
+                <form method="POST" action="excluir_meusdocumentos.php" class="inline-block">
+                    <input type="hidden" name="documento_id" value="<?php echo $documentoId; ?>">
+                    <button type="submit"
+                        class="bg-red-400 hover:bg-red-500 focus:bg-red-600 transition-colors duration-300 ease-in-out text-white font-semibold px-4 py-2 rounded-lg">Excluir</button>
+                </form>
+            </div>
+
+        <?php } ?>
+
     </div>
-</body>
-</html>
+    <p class="text-gray-700 text-center">Voltar para a <a href="index.php"
+            class="text-pink-500 font-bold hover:underline">tela inicial</a>.</p>
+    </p>
+    </body>
 
+    </html>
+
+
+    <?php
+} else {
+    echo '<p>Nenhum documento encontrado.</p>';
+}
+
+$stmt->close();
+$conn->close();
+?>
