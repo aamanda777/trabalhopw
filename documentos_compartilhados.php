@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Documentos Compartilhados</title>
+    <title>Livros Compartilhados</title>
     <meta charset="UTF-8">
 
     <link href="https://unpkg.com/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">

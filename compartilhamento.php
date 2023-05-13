@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 
 <head>
-    <title>Compartilhamento de Documentos</title>
     <meta charset="UTF-8">
-    <link href="https://unpkg.com/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compartilhamento de Documentos</title>
     <link href="https://cdn.tailwindcss.com" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.15/tailwind.min.css"
-        integrity="sha512-y3GvPLsI1eSZJqD6kXqoUFXC6Ua8qxR1T6WX2T6zO+ODrLRGG/s23P98x9XImGXvPPpO14P8fjexM/Lry1+sDA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.15/tailwind.min.css" rel="stylesheet">
 </head>
 
-<body class="bg-pink-100 flex justify-center items-center h-screen">
-    <div class="bg-white p-8 rounded-lg shadow-lg w-96 mx-auto">
-        <h1 class="text-3xl font-bold mb-8 text-pink-500 text-center">Compartilhamento de documentos</h1>
+
+<body class="bg-purple-100 flex justify-center items-center h-screen">
+  <div class="bg-gray-50 p-8 rounded-lg shadow-md w-1/2">
+        <h1 class="text-3xl font-bold mb-8 text-pink-500 text-center uppercase">Compartilhamento de documentos</h1>
         <?php
 session_start();
 
@@ -86,9 +85,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
         <form method="POST" action="" class="mb-4">
-            <label for="id_documento" class="block text-gray-700 font-bold mb-2">Selecione o documento:</label>
+            <label for="id_documento" class="block text-pink-400 font-bold mb-2 uppercase">Selecione o documento:</label>
             <select name="id_documento" id="id_documento"
-                class="border-2 border-gray-400 p-2 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
+                class="border-2 border-gray-400 p-2 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-green-300">
 
                 <?php foreach ($documentos as $documento): ?>
                     <option value="<?php echo $documento['id']; ?>"><?php echo $documento['titulo']; ?></option>
@@ -97,10 +96,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </select>
             <br>
 
-            <label for="usuarios_compartilhados" class="block text-gray-700 font-bold mb-2 mt-4">Selecione o usuário
+            <label for="usuarios_compartilhados" class="block text-pink-400 font-bold mb-2 mt-4 uppercase">Selecione o usuário
                 para compartilhar:</label>
             <select name="usuarios_compartilhados[]" id="usuarios_compartilhados" multiple
-                class="border-2 border-gray-400 p-2 py-3 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
+                class="border-2 border-gray-400 p-2 py-3 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-green-300">
 
                 <?php foreach ($usuarios as $usuario): ?>
                     <option value="<?php echo $usuario['id']; ?>"><?php echo $usuario['nome']; ?></option>
@@ -110,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <br>
 
             <input type="submit" value="Compartilhar"
-                class="bg-pink-500 text-white font-semibold py-2 px-4 mt-3 rounded-md hover:bg-pink-600 w-full">
+                class="bg-green-300 text-white font-semibold py-2 px-4 mt-3 rounded-md hover:bg-green-400 uppercase w-full">
             <p class="text-gray-700 text-center mt-4">Voltar para <a href="index.php"
                     class="text-pink-500 font-bold hover:underline">tela inicial</a>.</p>
         </form>
@@ -118,3 +117,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </body>
 
 </html>
+
