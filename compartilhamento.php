@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compartilhamento de Documentos</title>
+    <title>Compartilhamento de livros</title>
     <link href="https://cdn.tailwindcss.com" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.15/tailwind.min.css" rel="stylesheet">
 </head>
@@ -12,7 +12,7 @@
 
 <body class="bg-purple-100 flex justify-center items-center h-screen">
   <div class="bg-gray-50 p-8 rounded-lg shadow-md w-1/2">
-        <h1 class="text-3xl font-bold mb-8 text-pink-500 text-center uppercase">Compartilhamento de documentos</h1>
+        <h1 class="text-3xl font-bold mb-8 text-pink-500 text-center uppercase">Compartilhamento de livros</h1>
         <?php
 session_start();
 
@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
         <form method="POST" action="" class="mb-4">
-            <label for="id_documento" class="block text-pink-400 font-bold mb-2 uppercase">Selecione o documento:</label>
+            <label for="id_documento" class="block text-blue-400 font-bold mb-2 uppercase">Selecione o documento:</label>
             <select name="id_documento" id="id_documento"
                 class="border-2 border-gray-400 p-2 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-green-300">
 
@@ -96,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </select>
             <br>
 
-            <label for="usuarios_compartilhados" class="block text-pink-400 font-bold mb-2 mt-4 uppercase">Selecione o usuário
+            <label for="usuarios_compartilhados" class="block text-blue-400 font-bold mb-2 mt-4 uppercase">Selecione o usuário
                 para compartilhar:</label>
             <select name="usuarios_compartilhados[]" id="usuarios_compartilhados" multiple
                 class="border-2 border-gray-400 p-2 py-3 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-green-300">

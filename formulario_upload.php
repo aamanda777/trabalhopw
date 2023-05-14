@@ -6,11 +6,12 @@
   <meta charset="UTF-8">
 
   <link href="https://cdn.tailwindcss.com" rel="stylesheet">
-  
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="assets/css/meyawo.css">
 </head>
 
-<body class="bg-gray-50 flex justify-center items-center h-screen">
+<body class="bg-yellow-50 flex justify-center items-center h-screen">
   <div class="bg-gray-100 p-8 rounded-lg shadow-md w-1/2">
     <h1 class="text-3xl font-bold mb-8 text-pink-500 uppercase text-center">Upload de livro</h1>
 
@@ -71,16 +72,22 @@
     <form action="formulario_upload.php" method="POST" enctype="multipart/form-data">
       <div class="mb-4">
         <label for="arquivo" class="block text-green-500 font-bold mb-2 uppercase">Selecione o livro:</label>
-        <input type="file" name="arquivo" required class="border border-gray-300 bg-white py-2 px-4 w-full mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400">
+        <input type="file" name="arquivo" required
+          class="border border-gray-300 bg-white py-2 px-4 w-full mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400">
         <label for="titulo" class="block text-green-500 font-bold mb-2 uppercase">Título:</label>
-        <input type="text" name="titulo" required class="border bg-white border-gray-300 py-2 px-4 w-full mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400">
+        <input type="text" name="titulo" required
+          class="border bg-white border-gray-300 py-2 px-4 w-full mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400">
 
         <label for="descricao" class="block text-green-500 font-bold mb-2 uppercase">Descrição:</label>
-        <textarea name="descricao" required class="border border-gray-300 bg-white py-2 px-4 w-full mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
+        <textarea name="descricao" required
+          class="border border-gray-300 bg-white py-2 px-4 w-full mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
 
-        <input type="submit" value="Enviar" class="uppercase mt-4 bg-purple-300 text-white font-bold py-2 px-4 rounded-lg hover:bg-purple-400 w-full mb-4">
-        <p class="text-gray-700 text-center">Voltar para <a href="index.php" class="text-pink-500 font-bold hover:underline">tela inicial</a>.</p>
-  </div>
+        <input type="submit" value="Enviar"
+          class="uppercase mt-4 bg-purple-300 text-white font-bold py-2 px-4 rounded-lg hover:bg-purple-400 w-full mb-4">
+        <p class="text-gray-700 text-center">Voltar para <a href="index.php"
+            class="text-pink-500 font-bold hover:underline">tela inicial</a>.</p>
+      </div>
     </form>
-  </body>
-  </html>
+</body>
+
+</html>

@@ -27,24 +27,30 @@ $nomeUsuario = $_SESSION['nome_usuario'];
 
 <body>
     <div class="flex flex-col items-center justify-start h-screen py-12">
-        <h1 class="text-3xl font-bold mb-9 text-center text-pink-500">Olá
-            <?php echo $nomeUsuario; ?>, 
-        o que deseja fazer?</h1>
-
-        <div class="grid grid-cols-1 gap-8">
+        <h1 class="text-3xl font-bold mb-9 text-center text-pink-500 mt-20">Olá
+            <?php echo $nomeUsuario; ?>,
+            o que deseja fazer?
+        </h1>
+        <div class="grid grid-cols-2 gap-8">
             <a href="meus_documentos.php"
-                class="bg-blue-200 hover:bg-blue-300 text-blue-700 hover:text-blue-800 font-semibold py-6 px-12 rounded block text-center uppercase">Ver meus livros</a>
+                class="bg-blue-200 hover:bg-blue-300 text-blue-700 hover:text-blue-800 font-semibold py-6 px-12 rounded block text-center uppercase">Ver
+                meus livros</a>
             <a href="documentos_compartilhados.php"
-                class="bg-purple-200 hover:bg-purple-300 text-purple-700 hover:text-purple-800 font-semibold py-6 px-12 rounded block text-center uppercase">Ver livros compartilhados</a>
+                class="bg-purple-200 hover:bg-purple-300 text-purple-700 hover:text-purple-800 font-semibold py-6 px-12 rounded block text-center uppercase">Ver
+                livros compartilhados</a>
             <a href="formulario_upload.php"
-                class="bg-pink-200 hover:bg-pink-300 text-pink-700 hover:text-pink-800 font-semibold py-6 px-12 rounded block text-center uppercase">Fazer upload de livros</a>
+                class="bg-pink-200 hover:bg-pink-300 text-pink-700 hover:text-pink-800 font-semibold py-6 px-12 rounded block text-center uppercase">Fazer
+                upload de livros</a>
             <a href="compartilhamento.php"
-                class="bg-yellow-200 hover:bg-yellow-300 text-yellow-700 hover:text-yellow-800 font-semibold py-6 px-12 rounded block text-center uppercase">Compartilhar livros</a>
+                class="bg-yellow-200 hover:bg-yellow-300 text-yellow-700 hover:text-yellow-800 font-semibold py-6 px-12 rounded block text-center uppercase">Compartilhar
+                livros</a>
             <a href="busca_documentos.php"
-                class="bg-green-200 hover:bg-green-300 text-green-700 hover:text-green-800 font-semibold py-6 px-12 rounded block text-center uppercase">Buscar livro</a>
+                class="bg-green-200 hover:bg-green-300 text-green-700 hover:text-green-800 font-semibold py-6 px-12 rounded block text-center uppercase">Buscar
+                livro</a>
             <a href="logout.php"
                 class="bg-red-200 hover:bg-red-300 text-red-700 hover:text-red-800 font-semibold py-6 px-12 rounded block text-center uppercase">Sair</a>
         </div>
+
     </div>
 </body>
 

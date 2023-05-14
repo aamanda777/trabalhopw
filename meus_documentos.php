@@ -38,21 +38,24 @@ if ($resultado->num_rows > 0) {
         <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     </head>
     <style>
-        body {
-            background-color: #EBF5FF;
-        }
-    </style>
+    body {
+        background-color: #EBF5FF;
+    }
+</style>
+
+<body>
     <div class="container mx-auto py-8">
         <h1 class="text-4xl font-bold mb-9 text-center text-pink-500 uppercase">Meus Livros</h1>
 
-        <?php while ($row = $resultado->fetch_assoc()) {
-            $documentoId = $row['id'];
-            $titulo = $row['titulo'];
-            $descricao = $row['descricao'];
-            $dataUpload = $row['data_upload'];
+        <div class=" ml-3 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <?php while ($row = $resultado->fetch_assoc()) {
+                $documentoId = $row['id'];
+                $titulo = $row['titulo'];
+                $descricao = $row['descricao'];
+                $dataUpload = $row['data_upload'];
             ?>
 
-            <div class="bg-gray-50 rounded-lg shadow-md p-4 mb-4">
+            <div class="bg-gray-50 rounded-lg shadow-md p-4">
                 <h3 class="text-2xl text-purple-600 mb-2 uppercase">
                     <?php echo $titulo; ?>
                 </h3>
@@ -71,15 +74,16 @@ if ($resultado->num_rows > 0) {
                 </form>
             </div>
 
-        <?php } ?>
-
+            <?php } ?>
+        </div>
     </div>
+
     <p class="text-gray-700 text-center">Voltar para a <a href="index.php"
             class="text-pink-500 font-bold hover:underline">tela inicial</a>.</p>
-    </p>
-    </body>
 
-    </html>
+</body>
+
+</html>
 
 
     <?php
