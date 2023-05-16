@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Upload de livro</title>
+  <title>Upload de documento</title>
   <meta charset="UTF-8">
 
   <link href="https://cdn.tailwindcss.com" rel="stylesheet">
@@ -13,7 +13,7 @@
 
 <body class="bg-yellow-50 flex justify-center items-center h-screen">
   <div class="bg-gray-100 p-8 rounded-lg shadow-md w-1/2">
-    <h1 class="text-3xl font-bold mb-8 text-pink-500 uppercase text-center">Upload de livro</h1>
+    <h1 class="text-3xl font-bold mb-8 text-pink-500 uppercase text-center">Upload de documento</h1>
 
     <?php
     session_start();
@@ -71,7 +71,7 @@
     ?>
     <form action="formulario_upload.php" method="POST" enctype="multipart/form-data">
       <div class="mb-4">
-        <label for="arquivo" class="block text-green-500 font-bold mb-2 uppercase">Selecione o livro:</label>
+        <label for="arquivo" class="block text-green-500 font-bold mb-2 uppercase">Selecione o documento:</label>
         <input type="file" name="arquivo" required
           class="border border-gray-300 bg-white py-2 px-4 w-full mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400">
         <label for="titulo" class="block text-green-500 font-bold mb-2 uppercase">Título:</label>

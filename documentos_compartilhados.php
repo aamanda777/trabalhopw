@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Livros Compartilhados</title>
+    <title>Documentos Compartilhados</title>
     <meta charset="UTF-8">
 
     <link href="https://unpkg.com/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
@@ -18,7 +18,7 @@
 
 <body>
     <div class="container mx-auto px-4 py-10">
-        <h1 class="text-3xl font-bold mb-4 text-center text-pink-500 uppercase">Livros Compartilhados comigo</h1>
+        <h1 class="text-3xl font-bold mb-4 text-center text-pink-500 uppercase">documentos Compartilhados comigo</h1>
 
         <?php
         session_start();

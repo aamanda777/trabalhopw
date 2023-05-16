@@ -34,19 +34,19 @@ $nomeUsuario = $_SESSION['nome_usuario'];
         <div class="grid grid-cols-2 gap-8">
             <a href="meus_documentos.php"
                 class="bg-blue-200 hover:bg-blue-300 text-blue-700 hover:text-blue-800 font-semibold py-6 px-12 rounded block text-center uppercase">Ver
-                meus livros</a>
+                meus documentos</a>
             <a href="documentos_compartilhados.php"
                 class="bg-purple-200 hover:bg-purple-300 text-purple-700 hover:text-purple-800 font-semibold py-6 px-12 rounded block text-center uppercase">Ver
-                livros compartilhados</a>
+                documentos compartilhados</a>
             <a href="formulario_upload.php"
                 class="bg-pink-200 hover:bg-pink-300 text-pink-700 hover:text-pink-800 font-semibold py-6 px-12 rounded block text-center uppercase">Fazer
-                upload de livros</a>
+                upload de documentos</a>
             <a href="compartilhamento.php"
                 class="bg-yellow-200 hover:bg-yellow-300 text-yellow-700 hover:text-yellow-800 font-semibold py-6 px-12 rounded block text-center uppercase">Compartilhar
-                livros</a>
+                documentos</a>
             <a href="busca_documentos.php"
                 class="bg-green-200 hover:bg-green-300 text-green-700 hover:text-green-800 font-semibold py-6 px-12 rounded block text-center uppercase">Buscar
-                livro</a>
+                documentos</a>
             <a href="logout.php"
                 class="bg-red-200 hover:bg-red-300 text-red-700 hover:text-red-800 font-semibold py-6 px-12 rounded block text-center uppercase">Sair</a>
         </div>

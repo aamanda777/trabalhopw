@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Busca de livros</title>
+  <title>Busca de documentos</title>
 
   <meta charset="UTF-8">
   <link href="https://unpkg.com/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
@@ -18,7 +18,7 @@
     }
 </style>
   <div class="bg-gray-50 p-8 rounded-lg shadow-lg w-2/3 mx-auto">
-    <h1 class="text-3xl uppercase text-center font-bold mb-8 text-pink-500">Busca de livros</h1>
+    <h1 class="text-3xl uppercase text-center font-bold mb-8 text-pink-500">Busca de documentos</h1>
 
     <?php
     session_start();
