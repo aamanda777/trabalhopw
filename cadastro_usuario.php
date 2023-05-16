@@ -30,7 +30,7 @@
             <input type="password" id="senha" name="senha" required class="focus:outline-none focus:ring-2 focus:ring-blue-200 w-full px-4 py-2 border border-gray-300 rounded mt-2">
           </div>
           <div class="mb-4">
-            <input type="submit" value="Cadastrar" class="bg-yellow-300 hover:bg-yellow-400 text-white font-bold py-2 px-4 rounded w-full uppercase">
+            <input type="submit" value="Cadastrar" class="uppercase mt-4 bg-purple-300 text-white font-bold py-2 px-4 rounded-lg hover:bg-purple-400 w-full mb-4">
           </div>
           <p class="text-gray-700 text-center mt-3">Já tem uma conta? <a href="login.php" class="text-pink-500 font-bold hover:underline">Faça login</a>.</p>
         </form>

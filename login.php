@@ -28,7 +28,7 @@
               <label for="senha" class="block uppercase text-blue-500">Senha:</label>
               <input type="password" id="senha" name="senha" required class="focus:outline-none focus:ring-2 focus:ring-blue-200  w-full px-4 py-2 border border-gray-300 rounded mt-2">
             </div>
-            <button type="submit" class="bg-yellow-300 hover:bg-yellow-400 text-white font-bold py-2 px-4 rounded w-full uppercase">Entrar</button>
+            <button type="submit" class="uppercase mt-4 bg-purple-300 text-white font-bold py-2 px-4 rounded-lg hover:bg-purple-400 w-full mb-4">Entrar</button>
           </form>
           
           <p class="text-gray-700 text-center mt-4">Não tem uma conta? <a href="cadastro_usuario.php" class="text-pink-500 font-bold hover:underline">Crie uma aqui</a>.</p>

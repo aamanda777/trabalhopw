@@ -14,7 +14,7 @@ $senha = $_POST['senha'];
 // valida os dados do formulário
 if (empty($nome) || empty($email) || empty($senha)) {
   $_SESSION['erro_cadastro'] = 'Por favor, preencha todos os campos.';
-  header('Location: cadastro.php');
+  header('Location: cadastro_usuario.php');
   exit();
 }
 
@@ -25,7 +25,7 @@ $linha = $resultado->fetch_assoc();
 
 if ($linha['total'] > 0) {
   $_SESSION['erro_cadastro'] = 'O e-mail informado já está cadastrado.';
-  header('Location: cadastro.php');
+  header('Location: cadastro_usuario.php');
   exit();
 }
 
@@ -40,7 +40,7 @@ if ($conn->query($sql) === TRUE) {
   exit();
 } else {
   $_SESSION['erro_cadastro'] = 'Erro ao cadastrar usuário: ' . $conn->error;
-  header('Location: cadastro.php');
+  header('Location: cadastro_usuario.php');
   exit();
 }
 

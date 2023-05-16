@@ -4,19 +4,11 @@
 <head>
     <title>Documentos Compartilhados</title>
     <meta charset="UTF-8">
-
-    <link href="https://unpkg.com/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
 </head>
 
-<style>
-    body {
-        background-color: #EBF5FF;
-    }
-</style>
-
-<body>
+<body class="bg-yellow-50">
     <div class="container mx-auto px-4 py-10">
         <h1 class="text-3xl font-bold mb-4 text-center text-pink-500 uppercase">documentos Compartilhados comigo</h1>
 
@@ -57,12 +49,13 @@
                 $descricao = $row['descricao'];
 
                 echo '<div class="bg-gray-50 rounded-lg shadow-md p-4 mb-4">';
-                echo '<h3 class="text-2xl text-purple-600 mb-2 uppercase">' . $titulo . '</h3>';
+                echo '<h3 class="text-2xl text-blue-600 mb-2 uppercase">' . $titulo . '</h3>';
                 echo '<p class="text-gray-700 mb-2">' . $descricao . '</p>';
-                echo '<a href="download.php?id=' . $documentoId . '" class="inline-block bg-green-300 hover:bg-green-400 focus:bg-green-600 transition-colors duration-300 ease-in-out text-white font-semibold px-5 py-2 rounded-lg mr-2 mt-3">Baixar</a>';
+                echo '<a href="download.php?id=' . $documentoId . '" class="inline-block bg-green-300 hover:bg-green-400 focus:bg-green-600 transition-colors duration-300 ease-in-out text-white font-semibold px-5 py-2 rounded-lg mr-2 mt-3"><i class="fa regular fa-sharp fa-solid fa-download" style="color: #1a6100;"></i></a>';
                 echo '<form method="POST" action="excluir_documento.php" class="inline-block">';
                 echo '<input type="hidden" name="documento_id" value="' . $documentoId . '">';
-                echo '<button type="submit" class=" bg-red-400 hover:bg-red-500 focus:bg-red-600 transition-colors duration-300 ease-in-out text-white font-semibold px-4 py-2 rounded-lg">Excluir</button>';
+                echo '<button type="submit"
+                class="bg-red-300 hover:bg-red-400 focus:bg-red-400 transition-colors duration-300 ease-in-out text-white font-semibold px-4 py-2 rounded-lg"><i class="fa regular fa-sharp fa-solid fa-trash" style="color: #f00000;"></i></button>';
                 echo '</form>';
                 echo '</div>';
             }
