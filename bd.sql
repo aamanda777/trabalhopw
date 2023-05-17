@@ -30,3 +30,4 @@ CREATE TABLE permissoes (
 );
 
 ALTER TABLE documentos ADD COLUMN extensao VARCHAR(10) NOT NULL AFTER arquivo;
+ALTER TABLE permissoes ADD COLUMN id_usuario_compartilhador INT;

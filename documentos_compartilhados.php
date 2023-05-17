@@ -28,17 +28,19 @@
             die('Erro na conexão com o banco de dados: ' . $conn->connect_error);
         }
 
-        // Puxa a lista de documentos compartilhados com o usuário
+        // Puxa a lista de documentos compartilhados com o usuário logado
         $idUsuario = $_SESSION['id_usuario'];
         $sql = "SELECT documentos.id, documentos.titulo, documentos.descricao, usuarios.nome
-                FROM documentos
-                INNER JOIN permissoes ON documentos.id = permissoes.id_documento
-                INNER JOIN usuarios ON permissoes.id_usuario = usuarios.id
-                WHERE permissoes.id_usuario = ?";
+        FROM documentos
+        INNER JOIN permissoes ON documentos.id = permissoes.id_documento
+        INNER JOIN usuarios ON documentos.id_usuario = usuarios.id
+        WHERE permissoes.id_usuario = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $idUsuario);
         $stmt->execute();
         $resultado = $stmt->get_result();
+
+
 
         // Verifica se há documentos compartilhados
         if ($resultado->num_rows > 0) {
@@ -63,7 +65,7 @@
             }
             echo '</div>';
         } else {
-            echo '<p class=" uppercase  text-red-700 m-4 text-center">Nenhum documento compartilhado.</p>';
+            echo '<p class="uppercase text-red-700 m-4 text-center">Nenhum documento compartilhado.</p>';
         }
 
         $conn->close();
