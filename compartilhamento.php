@@ -100,7 +100,7 @@
             <label for="usuarios_compartilhados" class="block text-blue-400 font-bold mb-2 mt-4 uppercase">Selecione o
                 usuário
                 para compartilhar:</label>
-            <select name="usuarios_compartilhados[]" id="usuarios_compartilhados" multiple
+            <select name="usuarios_compartilhados[]" id="usuarios_compartilhados"
                 class="border-2 border-gray-400 p-2 py-3 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200">
 
                 <?php foreach ($usuarios as $usuario): ?>
